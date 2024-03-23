@@ -19,3 +19,27 @@ ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war .
 EXPOSE 8080
 
 CMD ["/opt/apache-tomcat-8.5.99/bin/catalina.sh", "run"]
+
+#----------------------------------------------------------------
+
+FROM ubuntu
+
+RUN apt update
+
+RUN apt install -y unzip
+
+RUN apt install -y nginx
+
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page293/chocolux.zip .
+
+RUN unzip chocolux.zip
+
+RUN cp chocolux /usr/share/nginx/html/
+
+RUN systemctl enable nginx
+
+RUN systemctl start nginx
+
+EXPOSE 80
+
+CMD [ "nginx","-D" "FOREGROUND" ]
