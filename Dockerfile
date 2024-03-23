@@ -34,7 +34,7 @@ ADD https://www.free-css.com/assets/files/free-css-templates/download/page293/ch
 
 RUN unzip chocolux.zip
 
-RUN cp chocolux /usr/share/nginx/html/
+RUN cp chocolux-html /usr/share/nginx/html/index.html
 
 RUN systemctl enable nginx
 
@@ -42,4 +42,4 @@ RUN systemctl start nginx
 
 EXPOSE 80
 
-CMD [ "nginx","-D" "FOREGROUND" ]
+CMD [ "nginx","-D", "FOREGROUND" ]
