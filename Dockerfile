@@ -1,10 +1,10 @@
-FROM ubuntu
+FROM centos:7
 
-LABEL = author "ranjit"
+LABEL author "ranjit"
 
-RUN apt update
+RUN yum update -y
 
-RUN apt install httpd -y
+RUN yum install httpd -y
 
 RUN echo "<h1> Hello world </h1>" > /var/www/html/index.html
 
@@ -14,5 +14,5 @@ RUN systemctl enable httpd
 
 EXPOSE 80
 
-CMD httpd -DFOREGROUND
+CMD ["httpd" "-D" "FOREGROUND"]
 
