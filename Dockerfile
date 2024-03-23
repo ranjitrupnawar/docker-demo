@@ -2,17 +2,13 @@ FROM centos:7
 
 LABEL author "ranjit"
 
-RUN yum update -y
+ADD  curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz
 
-RUN yum install httpd -y
+RUN tar -xvf apache-tomcat-8.5.99.tar.gz -C /opt
 
-RUN echo "<h1> Hello world </h1>" > /var/www/html/index.html
+RUN cd /opt/apache-tomcat-8.5.99
 
-RUN systemctl start httpd
+EXPOSE 8080
 
-RUN systemctl enable httpd 
-
-EXPOSE 80
-
-CMD ["httpd" "-D" "FOREGROUND"]
+CMD ["catalina.sh" "run"]
 
