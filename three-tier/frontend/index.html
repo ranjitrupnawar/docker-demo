@@ -1,0 +1,15 @@
+<h1 style="text-align: center;"><span style="color: #ff0000;">Welcome to Student Application</span></h1>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png" alt="Indian Flag" width="1200" height="630" /></p>
+<p>&nbsp;</p>
+<h2 style="text-align: center;"><a href="#" onclick="proxyTo('http://184.72.106.95:32774/student/')"><strong>Enter to Student Application</strong></a></h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script>
+function proxyTo(url) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send();
+    window.location.href = url;
+}
+</script>
+
